@@ -463,6 +463,7 @@
                         <tr>
                             <th>NO</th>
                             <th>NAMA</th>
+                            <th>DIVISI</th>
                             <th>JABATAN</th>
                             <th>DESKRIPSI</th>
                             <th>GAMBAR</th>
@@ -477,6 +478,11 @@
                             </td>
                             <td>
                                 <div class="pengurus-name">{{ $pengurus->nama }}</div>
+                            </td>
+                            <td>
+                                <div class="pengurus-divisi">
+                                    {{ optional($pengurus->divisi)->nama ?? '-' }}
+                                </div>
                             </td>
                             <td>
                                 <span class="pengurus-jabatan">{{ $pengurus->jabatan }}</span>
@@ -510,7 +516,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6">
+                            <td colspan="7">
                                 <div class="empty-state">
                                     <div class="empty-icon">👥</div>
                                     <div class="empty-text">Tidak ada data pengurus. Mulai tambahkan pengurus pertama!</div>

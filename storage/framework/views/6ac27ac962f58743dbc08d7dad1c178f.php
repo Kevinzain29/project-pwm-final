@@ -326,6 +326,69 @@
             grid-template-columns: 1fr;
         }
     }
+    .btn-export {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        border: none;
+        color: white;
+        padding: 0.875rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    .btn-export:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        color: white;
+    }
+
+    .btn-export::before {
+        content: '📤';
+        font-size: 1.1rem;
+    }
+
+    .btn-import {
+        background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        border: none;
+        color: white;
+        padding: 0.875rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .btn-import:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(107, 114, 128, 0.4);
+        color: white;
+    }
+
+    .btn-import::before {
+        content: '📥';
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .action-section .d-flex {
+            flex-direction: column;
+        }
+        .btn-add-primary, .btn-export, .btn-import {
+            width: 100%;
+            justify-content: center;
+        }
+    }
 </style>
 
 <div class="dashboard-wrapper">
@@ -442,10 +505,24 @@
         </div>
 
         <!-- Action Button -->
-        <div class="action-section">
-            <a href="<?php echo e(route('admin.umkm.create')); ?>" class="btn-add-primary">
-                Tambah UMKM Baru
-            </a>
+        <div class="action-section bg-white p-3 rounded-4 shadow-sm mb-4">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+                <a href="<?php echo e(route('admin.umkm.create')); ?>" class="btn-add-primary">
+                    Tambah UMKM Baru
+                </a>
+
+                <a href="<?php echo e(route('admin.umkm.export')); ?>" class="btn-export">
+                    Export Excel
+                </a>
+
+                <form action="<?php echo e(route('admin.umkm.import')); ?>" method="POST" enctype="multipart/form-data" id="importForm" class="m-0">
+                    <?php echo csrf_field(); ?>
+                    <input type="file" name="file" id="fileImport" accept=".xlsx,.xls" hidden onchange="this.form.submit()">
+                    <label for="fileImport" class="btn-import m-0">
+                        Import Excel
+                    </label>
+                </form>
+            </div>
         </div>
 
         <!-- Search Section -->

@@ -325,7 +325,7 @@
                     <!-- Logo & Nama -->
                     <div class="logo-container">
                         <div class="logo-image">
-                            <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo PWM DIY">
+                            <img src="<?php echo e(asset('images/Logo_PWM_DIY.png')); ?>" alt="Logo PWM DIY">
                         </div>
                         <div class="logo-text ms-3">
                             <h5 class="mb-1">PWM DIY</h5>

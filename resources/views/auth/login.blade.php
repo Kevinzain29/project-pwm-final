@@ -23,6 +23,7 @@
         text-align: center;
         box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .login-container:hover {
@@ -57,26 +58,22 @@
     }
 
     @keyframes glow {
-        0% {
-            box-shadow: 0 0 10px rgba(59,130,246,0.4);
-        }
-        100% {
-            box-shadow: 0 0 25px rgba(59,130,246,0.8), 0 0 50px rgba(59,130,246,0.5);
-        }
+        0% { box-shadow: 0 0 10px rgba(59,130,246,0.4); }
+        100% { box-shadow: 0 0 25px rgba(59,130,246,0.8), 0 0 50px rgba(59,130,246,0.5); }
     }   
 
     .login-container h2 {
         color: white;
-        margin-bottom: 25px;
-        font-weight: 500;
+        margin-bottom: 5px;
+        font-weight: 700;
         font-size: 24px;
     }
 
     .login-container h3 {
-        color: white;
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: 500;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 25px;
+        font-size: 18px;
+        font-weight: 400;
     }
 
     .input-group-custom {
@@ -89,15 +86,23 @@
         color: white;
         font-size: 14px;
         margin-bottom: 5px;
+        font-weight: 500;
     }
 
     .input-group-custom input {
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         border-radius: 8px;
-        border: none;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.9);
         outline: none;
         font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .input-group-custom input:focus {
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
     }
 
     .input-group-custom input.is-invalid {
@@ -119,48 +124,12 @@
         margin-bottom: 20px;
     }
 
-    .alert ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+    .alert ul { list-style: none; padding: 0; margin: 0; }
+    .alert li { color: #ffcccc; font-size: 13px; text-align: left; }
 
-    .alert li {
-        color: #ffcccc;
-        font-size: 13px;
-        text-align: left;
-    }
-
-    .forgot {
-        text-align: right;
-        margin-bottom: 20px;
-    }
-
-    .forgot a {
-        font-size: 13px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .forgot a:hover {
-        text-decoration: underline;
-    }
-
-    .remember-me {
-        text-align: left;
-        margin-bottom: 15px;
-    }
-
-    .remember-me label {
-        color: white;
-        font-size: 13px;
-        cursor: pointer;
-    }
-
-    .remember-me input[type="checkbox"] {
-        margin-right: 5px;
-        cursor: pointer;
-    }
+    .remember-me { text-align: left; margin-bottom: 15px; }
+    .remember-me label { color: white; font-size: 13px; cursor: pointer; }
+    .remember-me input[type="checkbox"] { margin-right: 5px; cursor: pointer; }
 
     .btn-login {
         width: 100%;
@@ -170,64 +139,50 @@
         background: #0b3d91;
         color: white;
         font-size: 16px;
+        font-weight: 600;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-top: 10px; /* Menjaga jarak setelah row Remember Me */
     }
 
     .btn-login:hover {
         background: #062c6a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
 
-    .signup {
-        margin-top: 20px;
-        font-size: 13px;
-        color: white;
-    }
-
-    .signup a {
-        color: #e0f2ff;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .signup a:hover {
-        text-decoration: underline;
-    }
-    .back-home {
-    text-align: center;
-    margin-bottom: 15px;
-    }
-
+    .back-home { text-align: center; margin-top: 30px; } /* Jarak pengganti signup */
     .btn-back-home {
         color: #e0f2ff;
         text-decoration: none;
         font-size: 14px;
-        padding: 8px 12px;
+        padding: 8px 16px;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(5px);
         transition: 0.3s;
     }
 
     .btn-back-home:hover {
-        background: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.2);
         color: white;
     }
-
 </style>
 
 <div class="login-page">
-    <div class="login-container">
-        <div class="logo-circle">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo UMKM PWM DIY">
+    <div class="login-container" data-aos="fade-up" data-aos-duration="1000">
+        
+        <div class="logo-circle" data-aos="zoom-in" data-aos-delay="200">
+            <img src="{{ asset('images/Logo_PWM_DIY.png') }}" alt="Logo UMKM PWM DIY">
         </div>
         
-        <h2>LP UMKM PWM DIY</h2>
-        <h3>Login</h3>
+        <h2 data-aos="fade-down" data-aos-delay="400">LP UMKM PWM DIY</h2>
+        <h3 data-aos="fade-down" data-aos-delay="500">Silakan Login</h3>
 
-        {{-- Error messages --}}
         @if ($errors->any())
-            <div class="alert">
+            <div class="alert" data-aos="shake">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -239,7 +194,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div class="input-group-custom">
+            <div class="input-group-custom" data-aos="fade-right" data-aos-delay="600">
                 <label for="email">Email</label>
                 <input id="email" type="email" 
                        class="@error('email') is-invalid @enderror" 
@@ -253,7 +208,7 @@
                 @enderror
             </div>
 
-            <div class="input-group-custom">
+            <div class="input-group-custom" data-aos="fade-right" data-aos-delay="700">
                 <label for="password">Password</label>
                 <input id="password" type="password" 
                        class="@error('password') is-invalid @enderror" 
@@ -265,29 +220,35 @@
                 @enderror
             </div>
 
-            <div class="remember-me">
-                <input type="checkbox" id="remember_me" name="remember">
-                <label for="remember_me">Remember Me</label>
-            </div>
-
-            @if (Route::has('password.request'))
-                <div class="forgot">
-                    <a href="{{ route('password.request') }}">Forgot Password?</a>
+            <div class="d-flex justify-content-start align-items-center mb-3" data-aos="fade-up" data-aos-delay="800">
+                <div class="remember-me mb-0">
+                    <input type="checkbox" id="remember_me" name="remember">
+                    <label for="remember_me" class="mb-0">Ingat Saya</label>
                 </div>
-            @endif
-
-            <button type="submit" class="btn-login">Sign in</button>
-
-            <div class="signup">
-                Belum punya akun? 
-                <a href="{{ route('register') }}">Daftar Disini</a>
             </div>
+
+            <button type="submit" class="btn-login" data-aos="zoom-in" data-aos-delay="900">
+                Sign In
+            </button>
+
         </form>
-        <div class="back-home" style="margin-top: 15px;">
+
+        <div class="back-home" data-aos="fade-up" data-aos-delay="1100">
             <a href="{{ url('/') }}" class="btn-back-home">
-                ← Kembali ke Home
+                <i class="fas fa-home me-1"></i> Kembali ke Beranda
             </a>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            once: true, 
+            duration: 800,
+            easing: 'ease-out-back',
+            startEvent: 'DOMContentLoaded'
+        });
+    });
+</script>
 @endsection

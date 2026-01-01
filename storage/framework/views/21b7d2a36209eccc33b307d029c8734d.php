@@ -352,6 +352,45 @@
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
 
+                    <!-- Divisi -->
+                    <div class="form-group">
+                        <label for="divisi_id" class="form-label">Divisi</label>
+                        <div class="input-icon icon-division">
+                            <select
+                                id="divisi_id"
+                                name="divisi_id"
+                                class="form-control-modern <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                            >
+                                <option value="">-- Pilih Divisi --</option>
+                                <?php $__currentLoopData = $divisis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $divisi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($divisi->id); ?>"
+                                        <?php echo e(old('divisi_id', $pengurus->divisi_id) == $divisi->id ? 'selected' : ''); ?>>
+                                        <?php echo e($divisi->nama); ?>
+
+                                    </option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+
+                        <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
                     <!-- Nama -->
                     <div class="form-group">
                         <label for="nama" class="form-label">Nama Lengkap</label>

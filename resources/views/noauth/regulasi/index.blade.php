@@ -10,7 +10,8 @@
     <div class="container">
 
         {{-- =================== HEADER =================== --}}
-        <div class="text-center text-white mb-5">
+        {{-- AOS: Fade Down --}}
+        <div class="text-center text-white mb-5" data-aos="fade-down">
             <h1 class="fw-bold display-5 mb-2" style="padding-top: 50px;">
                 📑 Regulasi
             </h1>
@@ -20,7 +21,8 @@
         </div>
 
         {{-- =================== FORM FILTER =================== --}}
-        <div class="card shadow-lg border-0 rounded-4 mb-5 p-4">
+        {{-- AOS: Fade Up --}}
+        <div class="card shadow-lg border-0 rounded-4 mb-5 p-4" data-aos="fade-up" data-aos-delay="200">
             <form method="GET" action="{{ route('noauth.regulasi.index') }}">
                 <div class="row g-4">
 
@@ -93,7 +95,8 @@
         </div>
 
         {{-- =================== TABEL REGULASI =================== --}}
-        <div class="card shadow-xl border-0 rounded-4 overflow-hidden">
+        {{-- AOS: Fade Up dengan delay lebih lama agar muncul setelah filter --}}
+        <div class="card shadow-xl border-0 rounded-4 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
             
             {{-- HEADER TABEL --}}
             <div class="card-header bg-white border-0 py-4 px-4">
@@ -112,7 +115,6 @@
                 <div class="table-responsive">
                     <table class="table table-hover align-middle" id="regulationTable">
                         <thead class="table-primary text-white">
-                            
                             <tr>
                                 <th class="fw-bold ps-4">Nama Regulasi</th>
                                 <th class="fw-bold text-center">Tanggal Terbit</th>
@@ -123,8 +125,9 @@
                         </thead>
 
                         <tbody>
-                            @forelse ($regulasi as $item)
-                                <tr class="regulation-row">
+                            @forelse ($regulasi as $index => $item)
+                                {{-- Menambahkan AOS pada setiap baris untuk efek cascading (opsional) --}}
+                                <tr class="regulation-row" data-aos="fade-up" data-aos-delay="{{ 100 + ($index * 50) }}" data-aos-anchor-placement="top-bottom">
                                     {{-- Nama Regulasi --}}
                                     <td class="ps-4">
                                         <i class="fas fa-file-alt text-primary me-2"></i>

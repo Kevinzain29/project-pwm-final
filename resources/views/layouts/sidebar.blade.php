@@ -1,6 +1,6 @@
 {{-- resources/views/layouts/sidebar.blade.php --}}
 <style>
-    .sidebar {
+.sidebar {
         position: fixed;
         top: 0;
         left: 0;
@@ -8,14 +8,48 @@
         width: 240px;
         background: linear-gradient(180deg, #1E3A8A);
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: column; /* Header, Menu, dan Footer tersusun vertikal */
         padding: 20px 0;
         z-index: 1050;
     }
     .sidebar-header {
+        flex-shrink: 0; /* Mencegah header mengecil */
         text-align: center;
         margin-bottom: 20px;
+    }
+/* KONTEN MENU DENGAN SCROLL */
+    .sidebar-menu {
+        flex-grow: 1;
+        overflow-y: auto; /* Mengaktifkan scroll vertikal */
+        overflow-x: hidden;
+        padding: 0 10px 0 15px; /* Memberi ruang sedikit di kanan untuk scrollbar */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* KUSTOMISASI SCROLLBAR AGAR SELARAS */
+    /* 1. Lebar Scrollbar */
+    .sidebar-menu::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* 2. Jalur Scrollbar (Track) - dibuat hampir transparan agar menyatu dengan bg biru */
+    .sidebar-menu::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* 3. Gagang Scrollbar (Thumb) - Menggunakan warna hijau stabilo agar tetap kelihatan */
+    .sidebar-menu::-webkit-scrollbar-thumb {
+        background: #22C55E;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+    }
+
+    /* 4. Efek saat Gagang Scrollbar disentuh mouse */
+    .sidebar-menu::-webkit-scrollbar-thumb:hover {
+        background: rgba(34, 197, 94, 0.8); /* Hijau lebih terang saat hover */
     }
     .sidebar-header img {
         width: 60px;
@@ -64,7 +98,7 @@
 <div class="sidebar">
     {{-- Logo & Teks --}}
     <div class="sidebar-header">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo">
+        <img src="{{ asset('images/Logo_PWM_DIY.png') }}" alt="Logo">
         <h5>PWM DIY</h5>
         <small>Lembaga Pengembang Usaha Mikro<br>Kecil dan Menengah</small>
     </div>
@@ -80,6 +114,7 @@
         <a class="{{ request()->routeIs('admin.sektor.index') ? 'active' : '' }}" href="{{ route('admin.sektor.index') }}"><i class="fas fa-industry me-1"></i> Sektor</a>
         <a class="{{ request()->routeIs('admin.umkm.index') ? 'active' : '' }}" href="{{ route('admin.umkm.index') }}"><i class="fas fa-store me-1"></i> UMKM</a>
         <a class="{{ request()->routeIs('admin.news.index') ? 'active' : '' }}" href="{{ route('admin.news.index') }}"><i class="fas fa-file-alt me-1"></i> Berita</a>
+        <a class="{{ request()->routeIs('admin.divisi.index') ? 'active' : '' }}" href="{{ route('admin.divisi.index') }}"><i class="fas fa-sitemap me-1"></i> Divisi</a>
         <a class="{{ request()->routeIs('admin.penguruses.index') ? 'active' : '' }}" href="{{ route('admin.penguruses.index') }}"><i class="fas fa-users-cog me-1"></i> Pengurus</a>
         <a class="{{ request()->routeIs('admin.lowongan.index') ? 'active' : '' }}" href="{{ route('admin.lowongan.index') }}"><i class="fas fa-briefcase me-1"></i> Lowongan</a>
     </div>

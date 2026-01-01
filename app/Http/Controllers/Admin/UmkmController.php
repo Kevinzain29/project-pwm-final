@@ -7,6 +7,9 @@ use App\Models\Umkm;
 use App\Models\Kategori;
 use App\Models\Daerah;
 use App\Models\Sektor;
+use App\Exports\UmkmExport;
+use App\Imports\UmkmImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -320,4 +323,24 @@ public function index(Request $request)
         return redirect()->route('admin.umkm.index')
                          ->with('success', 'Data UMKM berhasil dihapus');
     }
+
+public function export()
+{
+    return Excel::download(new UmkmExport, 'umkm.xlsx');
 }
+
+public function import(Request $request)
+{
+    $request->validate([
+        'file' => 'required|mimes:xlsx,xls|max:2048',
+    ]);
+
+    Excel::import(new UmkmImport, $request->file('file'));
+
+    return redirect()
+        ->route('admin.umkm.index')
+        ->with('success', 'Data UMKM berhasil diimport');
+}
+
+}
+

@@ -318,6 +318,44 @@
                 <form action="<?php echo e(route('admin.penguruses.store')); ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
+                    <!-- Divisi -->
+                    <div class="form-group">
+                        <label for="divisi_id" class="form-label">Divisi</label>
+                        <div class="input-icon icon-division">
+                            <select
+                                id="divisi_id"
+                                name="divisi_id"
+                                class="form-control-modern <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"                            >
+                                <option value="">-- Pilih Divisi --</option>
+                                <?php $__currentLoopData = $divisis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $divisi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($divisi->id); ?>"
+                                        <?php echo e(old('divisi_id') == $divisi->id ? 'selected' : ''); ?>>
+                                        <?php echo e($divisi->nama); ?>
+
+                                    </option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+
+                        <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
                     <!-- Nama -->
                     <div class="form-group">
                         <label for="nama" class="form-label">Nama Lengkap</label>
@@ -395,12 +433,12 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                             rows="4"
-                            minlength="3"
+                            minlength="10"
                             maxlength="500"
-                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 3 karakter)"><?php echo e(old('deskripsi')); ?></textarea>
+                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 10 karakter)"><?php echo e(old('deskripsi')); ?></textarea>
                         
                         <small id="deskripsiHelp" class="char-counter d-none">
-                            <span class="char-counter-value" id="deskripsiCount">0</span>/500 karakter (minimal 3 karakter)
+                            <span class="char-counter-value" id="deskripsiCount">0</span>/500 karakter (minimal 10 karakter)
                         </small>
 
                         <?php $__errorArgs = ['deskripsi'];
@@ -432,6 +470,7 @@ unset($__errorArgs, $__bag); ?>
                                 id="gambar"
                                 name="gambar" 
                                 accept="image/*">
+                                required>
                             <input type="hidden" name="gambar_temp" id="gambar_temp" value="<?php echo e(old('gambar_temp')); ?>">
                         </div>
                         <?php $__errorArgs = ['gambar'];

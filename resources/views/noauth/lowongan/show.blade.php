@@ -28,7 +28,7 @@
                 </nav>
                 
                 <!-- Main Job Card -->
-                <article class="card border-0" style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 5px 20px rgba(0,0,0,0.1); background: linear-gradient(145deg, #ffffff, #f8faff); animation: slideUp 0.8s ease-out;">
+                <article class="card border-0" data-aos="fade-up" data-aos-duration="1000" style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 5px 20px rgba(0,0,0,0.1); background: linear-gradient(145deg, #ffffff, #f8faff);">
                     
                     <!-- Featured Image Section -->
                     @if($lowongan->gambar)
@@ -36,6 +36,8 @@
                             <img src="{{ asset('storage/' . $lowongan->gambar) }}" 
                                 class="card-img-top"
                                 alt="{{ $lowongan->judul }}"
+                                data-aos="zoom-out" 
+                                data-aos-delay="200"
                                 style="height: 400px; object-fit: cover; transition: transform 0.6s ease;"
                                 onmouseover="this.style.transform='scale(1.02)';"
                                 onmouseout="this.style.transform='scale(1)';">

@@ -320,6 +320,29 @@
                 <form action="{{ route('admin.penguruses.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <!-- Divisi -->
+                    <div class="form-group">
+                        <label for="divisi_id" class="form-label">Divisi</label>
+                        <div class="input-icon icon-division">
+                            <select
+                                id="divisi_id"
+                                name="divisi_id"
+                                class="form-control-modern @error('divisi_id') is-invalid @enderror"                            >
+                                <option value="">-- Pilih Divisi --</option>
+                                @foreach($divisis as $divisi)
+                                    <option value="{{ $divisi->id }}"
+                                        {{ old('divisi_id') == $divisi->id ? 'selected' : '' }}>
+                                        {{ $divisi->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        @error('divisi_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <!-- Nama -->
                     <div class="form-group">
                         <label for="nama" class="form-label">Nama Lengkap</label>
@@ -362,12 +385,12 @@
                             name="deskripsi" 
                             class="form-control-modern @error('deskripsi') is-invalid @enderror"
                             rows="4"
-                            minlength="3"
+                            minlength="10"
                             maxlength="500"
-                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 3 karakter)">{{ old('deskripsi') }}</textarea>
+                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 10 karakter)">{{ old('deskripsi') }}</textarea>
                         
                         <small id="deskripsiHelp" class="char-counter d-none">
-                            <span class="char-counter-value" id="deskripsiCount">0</span>/500 karakter (minimal 3 karakter)
+                            <span class="char-counter-value" id="deskripsiCount">0</span>/500 karakter (minimal 10 karakter)
                         </small>
 
                         @error('deskripsi')
@@ -392,6 +415,7 @@
                                 id="gambar"
                                 name="gambar" 
                                 accept="image/*">
+                                required>
                             <input type="hidden" name="gambar_temp" id="gambar_temp" value="{{ old('gambar_temp') }}">
                         </div>
                         @error('gambar')

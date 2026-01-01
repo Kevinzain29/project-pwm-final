@@ -278,7 +278,7 @@
         <div class="text-center text-white px-3 px-sm-4 w-100" style="max-width: 1024px;">
             
             <!-- Welcome Badge -->
-            <div class="d-inline-block mb-2 mb-sm-3 animate-fade-in">
+            <div class="d-inline-block mb-2 mb-sm-3" data-aos="fade-down" data-aos-once="true">
                 <span class="backdrop-blur-md px-4 px-sm-5 py-1 rounded-pill fw-semibold text-uppercase border border-white" 
                       style="background-color: rgba(255, 255, 255, 0.1); font-size: 10px; letter-spacing: 0.1em; color: #DBEAFE; border-color: rgba(255, 255, 255, 0.2) !important;">
                     Selamat Datang
@@ -286,24 +286,24 @@
             </div>
 
             <!-- Main Heading -->
-            <h1 class="fw-bold mb-2 mb-sm-3" style="font-size: clamp(1.875rem, 5vw, 3.75rem); text-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); letter-spacing: -0.025em; line-height: 1.2;">
+            <h1 class="fw-bold mb-2 mb-sm-3" data-aos="zoom-in" data-aos-delay="200" data-aos-once="true" style="font-size: clamp(1.875rem, 5vw, 3.75rem); text-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); letter-spacing: -0.025em; line-height: 1.2;">
                 <span class="d-block bg-clip-text" style="background: linear-gradient(90deg, #FFFFFF 0%, #DBEAFE 50%, #FFFFFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
                     LP UMKM PWM DIY
                 </span>
             </h1>
 
             <!-- Subtitle -->
-            <h2 class="fw-bold mb-2 mb-sm-3 px-2" style="font-size: clamp(0.875rem, 2vw, 1.25rem); color: #DBEAFE; text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); letter-spacing: 0.025em;">
+            <h2 class="fw-bold mb-2 mb-sm-3 px-2" data-aos="fade-up" data-aos-delay="400" data-aos-once="true" style="font-size: clamp(0.875rem, 2vw, 1.25rem); color: #DBEAFE; text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); letter-spacing: 0.025em;">
                 Lembaga Pengembangan Usaha Mikro Kecil dan Menengah
             </h2>
 
             <!-- Description -->
-            <p class="mb-2 mb-sm-3 mx-auto px-2 fw-light" style="font-size: clamp(0.75rem, 1.5vw, 1rem); color: #EFF6FF; line-height: 1.625; text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); max-width: 768px;">
+            <p class="mb-2 mb-sm-3 mx-auto px-2 fw-light" data-aos="fade-up" data-aos-delay="600" data-aos-once="true" style="font-size: clamp(0.75rem, 1.5vw, 1rem); color: #EFF6FF; line-height: 1.625; text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); max-width: 768px;">
                 Mendukung pertumbuhan UMKM yang inovatif, mandiri, dan berdaya saing global.
             </p>
 
             <!-- Divider Line -->
-            <div class="d-flex align-items-center justify-content-center gap-2 mb-2 mb-sm-3">
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2 mb-sm-3" data-aos="zoom-in" data-aos-delay="800" data-aos-once="true">
                 <div style="width: 3rem; height: 2px; background: linear-gradient(90deg, transparent, #BFDBFE, transparent);"></div>
                 <svg style="width: 0.875rem; height: 0.875rem; color: #BFDBFE;" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
@@ -317,7 +317,7 @@
             </p>
 
             <!-- Statistik singkat dengan Glass Effect -->
-            <div class="d-flex flex-wrap justify-content-center gap-2 gap-sm-3 gap-md-4 mb-3 mb-sm-4 px-2">
+            <div class="d-flex flex-wrap justify-content-center gap-2 gap-sm-3 gap-md-4 mb-3 mb-sm-4 px-2" data-aos="fade-up" data-aos-delay="1000" data-aos-once="true">
                 <div class="backdrop-blur-md rounded-3 border hover-scale" 
                      style="background-color: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-color: rgba(255, 255, 255, 0.2) !important; transition: all 0.3s; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
                     <h3 class="fw-bold text-white mb-0" style="font-size: clamp(1.25rem, 3vw, 1.875rem);">500+</h3>
@@ -336,7 +336,7 @@
             </div>
 
             <!-- CTA Buttons dengan Improved Design -->
-            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3 mb-3 mb-sm-4 px-2">
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3 mb-3 mb-sm-4 px-2" data-aos="fade-up" data-aos-delay="1200" data-aos-once="true">
                 <a href="#tentang" 
                    class="btn btn-shine fw-bold rounded-pill hover-scale text-decoration-none" 
                    style="background: linear-gradient(90deg, #2563EB, #1D4ED8); color: white; padding: 0.625rem 1.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); transition: all 0.3s; font-size: clamp(0.75rem, 1.5vw, 0.875rem);">
@@ -422,8 +422,9 @@
     <div class="container-fluid px-3 px-md-5" style="max-width: 1280px; margin: 0 auto;">
         <!-- Grid untuk teks & gambar -->
         <div class="row align-items-center py-4 py-lg-5 g-4 g-lg-5">
+            <div class="col-12 col-lg-6" data-aos="fade-right">
             <!-- Left Content (slide in from left) -->
-            <div class="col-12 col-lg-6 opacity-0 -translate-x-8 transition-all duration-700" data-animate="left" style="transition: all 0.7s ease;">
+            <!-- <div class="col-12 col-lg-6 opacity-0 -translate-x-8 transition-all duration-700" data-animate="left" style="transition: all 0.7s ease;"> -->
                 <div class="d-flex flex-column gap-4">
                     <h2 class="text-white fw-bold d-flex align-items-center gap-3" style="font-size: clamp(1.5rem, 4vw, 1.875rem);">
                         <span class="bg-success rounded" style="width: 0.375rem; height: 2rem;"></span>
@@ -436,7 +437,7 @@
             </div>
 
             <!-- Right Content - Image Carousel (slide in from right) -->
-<div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end opacity-0 translate-x-8 transition-all duration-700" data-animate="right" style="transition: all 0.7s ease;">
+<div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end" data-aos="fade-left">
     <div class="position-relative" style="width: 100%; max-width: 600px;">
         <!-- Carousel Container -->
         <div class="carousel-container rounded-3 shadow-lg overflow-hidden" style="width: 100%; height: auto; position: relative;">
@@ -486,7 +487,7 @@
         <!-- Bottom Cards -->
         <div class="row g-4 mt-4">
             <!-- Daftar Card -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
                 <button onclick="openModal('modalDaftar')" class="btn w-100 bg-white p-4 rounded-4 shadow-sm text-center position-relative border-0" style="transition: all 0.2s ease;">
                     <!-- Mobile tap indicator -->
                     <div class="position-absolute top-0 end-0 mt-2 me-2 d-md-none" style="opacity: 0.7;">
@@ -510,7 +511,7 @@
             </div>
 
             <!-- Tentang Kami Card -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
                 <button onclick="openModal('modalTentang')" class="btn w-100 bg-white p-4 rounded-4 shadow-sm text-center position-relative border-0" style="transition: all 0.2s ease;">
                     <!-- Mobile tap indicator -->
                     <div class="position-absolute top-0 end-0 mt-2 me-2 d-md-none" style="opacity: 0.7;">
@@ -534,7 +535,7 @@
             </div>
 
             <!-- Visi dan Misi Card -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
                 <button onclick="openModal('modalVisi')" class="btn w-100 bg-white p-4 rounded-4 shadow-sm text-center position-relative border-0" style="transition: all 0.2s ease;">
                     <!-- Mobile tap indicator -->
                     <div class="position-absolute top-0 end-0 mt-2 me-2 d-md-none" style="opacity: 0.7;">
@@ -558,7 +559,7 @@
             </div>
         </div>
 
-        <!-- Modal Daftar -->
+         <!-- Modal Daftar -->
         <div id="modalDaftar" class="modal fade" tabindex="-1" style="display: none; background-color: rgba(0, 0, 0, 0.5);">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                 <div class="modal-content rounded-4 shadow-lg" style="background: linear-gradient(135deg, #d1fae5 0%, #5eead4 100%);">
@@ -991,10 +992,6 @@
     </div>
 </section>
 
-
-
-
-
 <!-- Program dan Layanan Section -->
 <section id="program&layanan" class="position-relative py-5 overflow-hidden" style="background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 50%, #1E3A8A 100%);">
     <!-- Background Pattern -->
@@ -1008,7 +1005,7 @@
         <!-- Header Section -->
         <div class="row g-5 mb-5">
             <!-- Left Content -->
-            <div class="col-12 col-lg-6 text-white">
+            <div class="col-12 col-lg-6 text-white" data-aos="fade-right">
                 
                 <h2 class="display-4 fw-bold mb-4" style="line-height: 1.2;">
                     Program dan Layanan<br>
@@ -1045,7 +1042,7 @@
             <div class="col-12 col-lg-6">
                 <div class="row g-4">
                     <!-- Mentoring Bisnis -->
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6" data-aos="fade-left" data-aos-delay="100">
                         <div class="rounded-4 p-4 border service-card h-100" 
                              style="background-color: rgba(51, 65, 85, 0.5); backdrop-filter: blur(8px); border-color: rgba(71, 85, 105, 0.5) !important; transition: all 0.3s;">
                             <div class="rounded-4 d-flex align-items-center justify-content-center mb-3 icon-service" 
@@ -1060,7 +1057,7 @@
                     </div>
                     
                     <!-- Permodalan Usaha -->
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6" data-aos="fade-left" data-aos-delay="200">
                         <div class="rounded-4 p-4 border service-card h-100" 
                              style="background-color: rgba(51, 65, 85, 0.5); backdrop-filter: blur(8px); border-color: rgba(71, 85, 105, 0.5) !important; transition: all 0.3s;">
                             <div class="rounded-4 d-flex align-items-center justify-content-center mb-3 icon-service" 
@@ -1075,7 +1072,7 @@
                     </div>
                     
                     <!-- Izin Usaha dan Badan Hukum -->
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6" data-aos="fade-left" data-aos-delay="100">
                         <div class="rounded-4 p-4 border service-card h-100" 
                              style="background-color: rgba(51, 65, 85, 0.5); backdrop-filter: blur(8px); border-color: rgba(71, 85, 105, 0.5) !important; transition: all 0.3s;">
                             <div class="rounded-4 d-flex align-items-center justify-content-center mb-3 icon-service" 
@@ -1090,7 +1087,7 @@
                     </div>
                     
                     <!-- Akses dan Informasi -->
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6" data-aos="fade-left" data-aos-delay="200"> 
                         <div class="rounded-4 p-4 border service-card h-100" 
                              style="background-color: rgba(51, 65, 85, 0.5); backdrop-filter: blur(8px); border-color: rgba(71, 85, 105, 0.5) !important; transition: all 0.3s;">
                             <div class="rounded-4 d-flex align-items-center justify-content-center mb-3 icon-service" 
@@ -1122,7 +1119,7 @@
 <section class="py-5" style="background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 50%, #1E3A8A 100%);">
     <div class="container" style="max-width: 1280px;">
         <!-- Header -->
-        <div class="text-center mb-4 mb-md-5">
+        <div class="text-center mb-4 mb-md-5" data-aos="fade-up">
             <h2 class="display-5 fw-bold text-white mb-3" style="font-size: clamp(1.5rem, 5vw, 3rem);">
                 Mitra & Kolaborasi
             </h2>
@@ -1150,7 +1147,7 @@
                     <div class="logo-item-custom d-flex flex-column align-items-center">
                         <div class="p-4">
                             <div class="rounded-circle bg-white shadow d-flex align-items-center justify-content-center overflow-hidden" style="width: 96px; height: 96px;">
-                                <img src="<?php echo e(asset('images/Lp umkm.png')); ?>" 
+                                <img src="<?php echo e(asset('images/Logo_PWM_DIY.png')); ?>" 
                                     alt="Logo PWM" 
                                     class="img-fluid" style="width: 64px; height: 64px; object-fit: contain;">
                             </div>
@@ -1275,7 +1272,7 @@
                     <div class="logo-item-custom d-flex flex-column align-items-center">
                         <div class="p-4">
                             <div class="rounded-circle bg-white shadow d-flex align-items-center justify-content-center overflow-hidden" style="width: 96px; height: 96px;">
-                                <img src="<?php echo e(asset('images/Lp umkm.png')); ?>" 
+                                <img src="<?php echo e(asset('images/Logo_PWM_DIY.png')); ?>" 
                                     alt="Logo PWM" 
                                     class="img-fluid" style="width: 64px; height: 64px; object-fit: contain;">
                             </div>

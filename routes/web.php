@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-// =========================
-// 📦 Import Controllers
-// =========================
+// =====================================================
+// 📦 IMPORT CONTROLLERS
+// =====================================================
+
+// No Auth
 use App\Http\Controllers\NoAuth\HomeController;
 use App\Http\Controllers\NoAuth\PublicUmkmController;
 use App\Http\Controllers\NoAuth\PublicPengurusController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\NoAuth\PublicNewsController;
 use App\Http\Controllers\NoAuth\PublicLowonganController;
 use App\Http\Controllers\NoAuth\PublicRegulasiController;
 
+// Admin
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PengurusController;
@@ -22,42 +25,42 @@ use App\Http\Controllers\Admin\UmkmController;
 use App\Http\Controllers\Admin\SektorController;
 use App\Http\Controllers\Admin\LowonganController;
 use App\Http\Controllers\Admin\RegulasiController;
+use App\Http\Controllers\Admin\DivisiController;
 
+// User
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
 
 // =====================================================
-// 🌐 PUBLIC ROUTES (Tanpa Login)
+// 🌐 PUBLIC ROUTES (TANPA LOGIN)
 // =====================================================
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// --- UMKM ---
+// UMKM
 Route::get('/umkm', [PublicUmkmController::class, 'index'])->name('noauth.umkm.index');
 
-// --- Pengurus ---
+// Pengurus
 Route::get('/pengurus', [PublicPengurusController::class, 'index'])->name('noauth.pengurus.index');
 
-// --- Berita ---
-// Route::prefix('news')->name('noauth.news.')->group(function () {
+// Berita
 Route::get('/news', [PublicNewsController::class, 'index'])->name('noauth.news.index');
 Route::get('/news/all', [PublicNewsController::class, 'all'])->name('noauth.news.all');
 Route::get('/news/{id}', [PublicNewsController::class, 'show'])->name('noauth.news.show');
-// });
 
-// --- Regulasi ---
+// Regulasi
 Route::prefix('regulasi')->name('noauth.regulasi.')->group(function () {
     Route::get('/', [PublicRegulasiController::class, 'index'])->name('index');
     Route::get('/{id}', [PublicRegulasiController::class, 'show'])->name('show');
 });
 
-// --- Lowongan ---
+// Lowongan
 Route::prefix('lowongan')->name('noauth.lowongan.')->group(function () {
     Route::get('/', [PublicLowonganController::class, 'index'])->name('index');
     Route::get('/{lowongan}', [PublicLowonganController::class, 'show'])->name('show');
 });
 
-// --- Status setelah registrasi ---
+// Status Registrasi
 Route::get('/pending-approval', [HomeController::class, 'pendingApproval'])->name('pending-approval');
 Route::get('/registration-success', [HomeController::class, 'registrationSuccess'])->name('registration-success');
 
@@ -69,7 +72,7 @@ require __DIR__ . '/auth.php';
 
 
 // =====================================================
-// 👤 PROFILE ROUTES (Auth, Verified, Approved, Active)
+// 👤 PROFILE ROUTES
 // =====================================================
 Route::middleware(['auth', 'verified', 'approved', 'active'])
     ->prefix('profile')
@@ -91,7 +94,17 @@ Route::middleware(['auth', 'admin', 'active'])
         // Dashboard
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-        // CRUD Resources
+        // =================================================
+        // 🔹 UMKM SPECIAL ROUTES (HARUS DI ATAS RESOURCE)
+        // =================================================
+        Route::get('/umkm/export', [UmkmController::class, 'export'])->name('umkm.export');
+        Route::post('/umkm/import', [UmkmController::class, 'import'])->name('umkm.import');
+        Route::patch('/umkm/{umkm}/toggle', [UmkmController::class, 'toggleActive'])->name('umkm.toggle');
+        Route::patch('/umkm/toggle-mass', [UmkmController::class, 'toggleMass'])->name('umkm.toggle-mass');
+
+        // =================================================
+        // CRUD RESOURCES
+        // =================================================
         Route::resources([
             'kategori'   => KategoriController::class,
             'daerah'     => DaerahController::class,
@@ -101,6 +114,7 @@ Route::middleware(['auth', 'admin', 'active'])
             'sektor'     => SektorController::class,
             'lowongan'   => LowonganController::class,
             'regulasi'   => RegulasiController::class,
+            'divisi'     => DivisiController::class,
         ]);
 
         // Upload sementara
@@ -110,30 +124,25 @@ Route::middleware(['auth', 'admin', 'active'])
         // Lowongan
         Route::get('/lowongan-history', [LowonganController::class, 'history'])->name('lowongan.history');
 
-        // Toggle status UMKM
-        Route::patch('/umkm/{umkm}/toggle', [UmkmController::class, 'toggleActive'])->name('umkm.toggle');
-        Route::patch('/umkm/toggle-mass', [UmkmController::class, 'toggleMass'])->name('umkm.toggle-mass');
+        // =================================================
+        // 👥 USER MANAGEMENT
+        // =================================================
+        Route::prefix('users')->name('users.')->group(function () {
+            Route::get('/', [UserAksesController::class, 'index'])->name('index');
+            Route::get('/pending', [UserAksesController::class, 'pendingUsers'])->name('pending');
+            Route::get('/all', [UserAksesController::class, 'allUsers'])->name('all');
 
-        // --- User Management ---
-        Route::prefix('users')->group(function () {
-            Route::get('/', [UserAksesController::class, 'index'])->name('users.index');
-            Route::get('/pending', [UserAksesController::class, 'pendingUsers'])->name('users.pending');
-            Route::get('/all', [UserAksesController::class, 'allUsers'])->name('users.all');
+            Route::get('/create', [UserAksesController::class, 'create'])->name('create');
+            Route::post('/', [UserAksesController::class, 'store'])->name('store');
 
-            // Tambah akun
-            Route::get('/create', [UserAksesController::class, 'create'])->name('users.create');
-            Route::post('/', [UserAksesController::class, 'store'])->name('users.store');
+            Route::get('/{user}/edit', [UserAksesController::class, 'edit'])->name('edit');
+            Route::put('/{user}', [UserAksesController::class, 'update'])->name('update');
 
-            // Edit akun
-            Route::get('/{user}/edit', [UserAksesController::class, 'edit'])->name('users.edit');
-            Route::put('/{user}', [UserAksesController::class, 'update'])->name('users.update');
-
-            // Approve / Reject / Activate / Deactivate / Delete
-            Route::post('/{user}/approve', [UserAksesController::class, 'approveUser'])->name('approve-user');
-            Route::delete('/{user}/reject', [UserAksesController::class, 'rejectUser'])->name('reject-user');
-            Route::post('/{user}/activate', [UserAksesController::class, 'activateUser'])->name('users.activate');
-            Route::post('/{user}/deactivate', [UserAksesController::class, 'deactivateUser'])->name('users.deactivate');
-            Route::delete('/{user}', [UserAksesController::class, 'deleteUser'])->name('users.delete');
+            Route::post('/{user}/approve', [UserAksesController::class, 'approveUser'])->name('approve');
+            Route::delete('/{user}/reject', [UserAksesController::class, 'rejectUser'])->name('reject');
+            Route::post('/{user}/activate', [UserAksesController::class, 'activateUser'])->name('activate');
+            Route::post('/{user}/deactivate', [UserAksesController::class, 'deactivateUser'])->name('deactivate');
+            Route::delete('/{user}', [UserAksesController::class, 'deleteUser'])->name('delete');
         });
     });
 

@@ -354,6 +354,30 @@
                     @csrf
                     @method('PUT')
 
+                    <!-- Divisi -->
+                    <div class="form-group">
+                        <label for="divisi_id" class="form-label">Divisi</label>
+                        <div class="input-icon icon-division">
+                            <select
+                                id="divisi_id"
+                                name="divisi_id"
+                                class="form-control-modern @error('divisi_id') is-invalid @enderror"
+                            >
+                                <option value="">-- Pilih Divisi --</option>
+                                @foreach($divisis as $divisi)
+                                    <option value="{{ $divisi->id }}"
+                                        {{ old('divisi_id', $pengurus->divisi_id) == $divisi->id ? 'selected' : '' }}>
+                                        {{ $divisi->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        @error('divisi_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <!-- Nama -->
                     <div class="form-group">
                         <label for="nama" class="form-label">Nama Lengkap</label>

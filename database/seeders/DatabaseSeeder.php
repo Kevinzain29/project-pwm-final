@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             DaerahSeeder::class,
             SektorSeeder::class,
             UmkmSeeder::class,
-            NewsSeeder::class,
+            // NewsSeeder::class,
             LowonganSeeder::class,
         ]);
     }

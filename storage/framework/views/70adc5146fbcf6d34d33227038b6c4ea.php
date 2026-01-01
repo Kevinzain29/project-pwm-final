@@ -10,7 +10,8 @@
     <div class="container">
 
         
-        <div class="text-center text-white mb-5">
+        
+        <div class="text-center text-white mb-5" data-aos="fade-down">
             <h1 class="fw-bold display-5 mb-2" style="padding-top: 50px;">
                 📑 Regulasi
             </h1>
@@ -20,7 +21,8 @@
         </div>
 
         
-        <div class="card shadow-lg border-0 rounded-4 mb-5 p-4">
+        
+        <div class="card shadow-lg border-0 rounded-4 mb-5 p-4" data-aos="fade-up" data-aos-delay="200">
             <form method="GET" action="<?php echo e(route('noauth.regulasi.index')); ?>">
                 <div class="row g-4">
 
@@ -95,7 +97,8 @@
         </div>
 
         
-        <div class="card shadow-xl border-0 rounded-4 overflow-hidden">
+        
+        <div class="card shadow-xl border-0 rounded-4 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
             
             
             <div class="card-header bg-white border-0 py-4 px-4">
@@ -114,7 +117,6 @@
                 <div class="table-responsive">
                     <table class="table table-hover align-middle" id="regulationTable">
                         <thead class="table-primary text-white">
-                            
                             <tr>
                                 <th class="fw-bold ps-4">Nama Regulasi</th>
                                 <th class="fw-bold text-center">Tanggal Terbit</th>
@@ -125,8 +127,9 @@
                         </thead>
 
                         <tbody>
-                            <?php $__empty_1 = true; $__currentLoopData = $regulasi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <tr class="regulation-row">
+                            <?php $__empty_1 = true; $__currentLoopData = $regulasi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                
+                                <tr class="regulation-row" data-aos="fade-up" data-aos-delay="<?php echo e(100 + ($index * 50)); ?>" data-aos-anchor-placement="top-bottom">
                                     
                                     <td class="ps-4">
                                         <i class="fas fa-file-alt text-primary me-2"></i>
@@ -202,5 +205,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\project-pwm-final\resources\views\noauth\regulasi\index.blade.php ENDPATH**/ ?>

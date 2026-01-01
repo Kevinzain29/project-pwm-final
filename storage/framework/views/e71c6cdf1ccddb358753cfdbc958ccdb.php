@@ -141,24 +141,25 @@
 </style>
 
 <div class="container py-5">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-down">
         <h2 class="section-title" style="color: #ffffff;">Dashboard Statistik Data UMKM 📈</h2>
     </div>
 
     <div class="row mb-5 justify-content-center">
-        <div class="col-lg-3 col-md-6 mb-4">
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="stat-card">
                 <p>Total UMKM</p>
                 <div class="stat-number text-primary"><?php echo e(number_format($totalUmkm)); ?></div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="stat-card" style="border-left-color: #28a745;"> <p>Total Karyawan</p>
+        <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-card" style="border-left-color: #28a745;"> 
+                <p>Total Karyawan</p>
                 <div class="stat-number text-success"><?php echo e(number_format($totalKaryawan)); ?></div>
             </div>
         </div>
         
-        <div class="col-lg-6 col-md-12 mb-4">
+        <div class="col-lg-6 col-md-12 mb-4" data-aos="fade-left" data-aos-delay="300">
             <div class="chart-card">
                 <h6>Distribusi UMKM berdasarkan Kategori</h6>
                 <div class="chart-container">
@@ -169,7 +170,7 @@
     </div>
     
     <div class="row mb-5">
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="chart-card">
                 <h6>Pertumbuhan Bulanan (Akumulasi <?php echo e($tahunSekarang); ?>)</h6>
                 <div class="chart-container">
@@ -177,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
             <div class="chart-card">
                 <h6>Pertumbuhan Tahunan (Total UMKM)</h6>
                 <div class="chart-container">
@@ -185,7 +186,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12 mb-4">
+        <div class="col-lg-4 col-md-12 mb-4" data-aos="fade-up" data-aos-delay="300">
             <div class="chart-card">
                 <h6>Distribusi UMKM per Sektor</h6>
                 <div class="chart-container">
@@ -196,7 +197,7 @@
     </div>
     
     <div class="row justify-content-center mb-5">
-        <div class="col-12">
+        <div class="col-12" data-aos="fade-up">
             <div class="chart-card p-0">
                 <div class="card-header-main d-flex flex-wrap justify-content-between align-items-center mb-3 p-3">
                     <span class="fw-bold fs-5">📊 Grafik Statistik Detail</span>
@@ -239,13 +240,13 @@
                         <canvas id="chartUtama"></canvas>
                     </div>
                     <div class="row g-2 mb-3" id="summaryCards">
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="chart-card mt-4 p-4" id="tabelUmkm">
+    <div class="chart-card mt-4 p-4" id="tabelUmkm" data-aos="slide-up">
         <h5 class="fw-bold text-primary mb-3"><i class="bi bi-table me-2"></i> Data Detail UMKM</h5>
         <form method="GET" action="<?php echo e(route('noauth.umkm.index')); ?>" id="searchForm" class="mb-3 d-flex">
             <input type="hidden" name="tahun" value="<?php echo e(request('tahun','all')); ?>">
@@ -254,10 +255,6 @@
             <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Cari</button>
         </form>
         
-        <!-- <div id="umkmTable">
-            
-        </div> -->
-
         <div class="d-flex justify-content-end mb-3">
             <button id="resetFilters" class="btn btn-sm btn-outline-danger">
                 Reset Semua Filter

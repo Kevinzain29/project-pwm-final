@@ -12,13 +12,13 @@
     }
 
     .profile-title {
-        color: #a3ff00;
+        color: white;
         font-size: 3rem;
         font-weight: 800;
         letter-spacing: 3px;
         text-transform: uppercase;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        margin-bottom: 8rem;
+        margin-bottom: 6rem;
     }
 
     .profile-name {
@@ -63,6 +63,56 @@
         padding: 4rem 0;
     }
 
+    /* Pemisah antar Divisi */
+    .division-separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+
+    .division-separator::before,
+    .division-separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid rgba(163, 255, 0, 0.3);
+    }
+
+    .division-title-wrapper {
+        padding: 0 20px;
+    }
+
+    .division-label {
+        background: rgba(163, 255, 0, 0.1);
+        color: #a3ff00;
+        padding: 8px 25px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 1px solid rgba(163, 255, 0, 0.5);
+        font-size: 0.9rem;
+    }
+
+    /* Bingkai tiap Anggota */
+    .team-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px 15px;
+        height: 100%;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    .team-card:hover {
+        background: rgba(163, 255, 0, 0.05);
+        border-color: #a3ff00;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
     .team-member {
         text-align: center;
         margin-bottom: 2rem;
@@ -89,7 +139,7 @@
     }
 
     .team-name {
-        color: #a3ff00;
+        color: white;
         font-size: 1.1rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
@@ -284,21 +334,45 @@
 
         <section class="team-section">
             <div class="container">
-                <div class="row justify-content-center">
-                    <?php $__currentLoopData = $others; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $pengurus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-6 col-sm-4 col-md-2 col-lg-2">
-                            <div class="team-member" data-aos="fade-up" data-aos-delay="<?php echo e(100 * $key); ?>">
-                                <?php if($pengurus->gambar): ?>
-                                    <img src="<?php echo e(asset('storage/' . $pengurus->gambar)); ?>" 
-                                        alt="<?php echo e($pengurus->nama); ?>" 
-                                        class="team-avatar">
-                                <?php endif; ?>
-                                <div class="team-name"><?php echo e($pengurus->nama); ?></div>
-                                <div class="team-position"><?php echo e($pengurus->jabatan); ?></div>
-                            </div>
+                <?php
+                    $pengurusesByDivisi = $others->groupBy(function($item) {
+                        return $item->divisi ? $item->divisi->nama : 'Lainnya';
+                    });
+                ?>
+
+                <?php $__currentLoopData = $pengurusesByDivisi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $divisiNama => $pengurusList): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="division-separator" data-aos="fade-up">
+                        <div class="division-title-wrapper">
+                            <span class="division-label"><?php echo e($divisiNama); ?></span>
                         </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
+                    </div>
+
+                    <div class="row justify-content-center mb-5 g-4">
+                        <?php $__currentLoopData = $pengurusList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $pengurus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="team-card text-center" data-aos="fade-up" data-aos-delay="<?php echo e(100 * $key); ?>">
+                                    <?php if($pengurus->gambar): ?>
+                                        <img src="<?php echo e(asset('storage/' . $pengurus->gambar)); ?>" 
+                                            alt="<?php echo e($pengurus->nama); ?>" 
+                                            class="team-avatar">
+                                    <?php else: ?>
+                                        <img src="https://ui-avatars.com/api/?name=<?php echo e(urlencode($pengurus->nama)); ?>&background=1d4ed8&color=fff" 
+                                            class="team-avatar">
+                                    <?php endif; ?>
+                                    
+                                    <div class="team-name text-truncate" title="<?php echo e($pengurus->nama); ?>">
+                                        <?php echo e($pengurus->nama); ?>
+
+                                    </div>
+                                    <div class="team-position small text-uppercase" style="font-size: 0.75rem; opacity: 0.7;">
+                                        <?php echo e($pengurus->jabatan); ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </section>
     <?php endif; ?>
@@ -309,8 +383,7 @@
                 <div class="col-lg-7 col-md-7">
                     <h3 class="section-title" data-aos="fade-up">Tentang Kami</h3>
                     <p class="about-text" data-aos="fade-right" data-aos-delay="200">
-                        Kampung Bausasran, bagian dari Kecamatan Danurejan, Yogyakarta,
-                        dinamai dari tokoh Tumenggung Bausasra, seorang abdi dalem ahli bangunan dari Puro Pakualaman.
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
                     </p>
                 </div>
                 <div class="col-lg-5 col-md-5 text-center">

@@ -36,7 +36,7 @@
                 <div class="container d-flex justify-content-between align-items-center">
                     <!-- Logo + Text -->
                     <div class="d-flex align-items-center">
-                        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo" class="me-2 rounded-circle" class="me-3" style="width:50px; height:50px;">
+                        <img src="<?php echo e(asset('images/Logo_PWM_DIY.png')); ?>" alt="Logo" class="me-2 rounded-circle" class="me-3" style="width:50px; height:50px;">
                         <div>
                             <h5 class="mb-0 fw-bold" style="color:#22C55E;">PWM DIY</h5>
                             <small class="text-white">Lembaga Pengembang Usaha Mikro Kecil dan Menengah<br>Pimpinan Pusat Muhammadiyah</small>
