@@ -18,8 +18,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!-- App CSS -->
-    <!-- <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"> -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 
     @yield('styles')     
      
