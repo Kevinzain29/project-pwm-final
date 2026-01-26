@@ -438,7 +438,7 @@
             <div class="admin-stat-card card-primary">
                 <div class="admin-stat-card-body text-center">
                     <div class="admin-stat-icon-wrapper mb-2">
-                        <img src="{{ asset('images/store.png') }}" alt="UMKM" title="UMKM" class="admin-stat-icon" width="40" height="40">
+                        <img src="{{ asset('images/Store.png') }}" alt="UMKM" title="UMKM" class="admin-stat-icon" width="40" height="40">
                     </div>
                     <div class="admin-stat-title">Total UMKM</div>
                     <h2 class="admin-stat-value">{{ number_format($totalUmkm) }}</h2>

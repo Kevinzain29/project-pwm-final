@@ -566,7 +566,6 @@
                     <div class="modal-body p-4 p-md-5 position-relative">
                         <button onclick="closeModal('modalDaftar')" class="btn-close position-absolute top-0 end-0 m-3" style="font-size: 1.5rem;"></button>
                         <div class="text-center mb-4">
-                            <img src="images/voting_3160562.png" alt="Daftar Icon" style="width: 4rem; height: 4rem;">
                         </div>
                         <h2 class="h3 fw-bold text-dark mb-4 text-center">Daftar UMKM Bersama LP PWM DIY</h2>
                         <div class="bg-white rounded-3 p-4 mb-4" style="background-color: rgba(255, 255, 255, 0.7) !important;">
@@ -731,7 +730,6 @@
                     <div class="modal-body p-4 p-md-5 position-relative">
                         <button onclick="closeModal('modalTentang')" class="btn-close position-absolute top-0 end-0 m-3" style="font-size: 1.5rem;"></button>
                         <div class="text-center mb-4">
-                            <img src="images/audience_1040005.png" alt="Tentang Icon" style="width: 4rem; height: 4rem;">
                         </div>
                         <h2 class="h4 fw-bold text-dark mb-4 text-center">Tentang LP PWM DIY</h2>
                         <div class="bg-white rounded-3 p-4 mb-4" style="background-color: rgba(255, 255, 255, 0.7) !important;">
@@ -860,7 +858,6 @@
                     <div class="modal-body p-4 p-md-5 position-relative">
                         <button onclick="closeModal('modalVisi')" class="btn-close position-absolute top-0 end-0 m-3" style="font-size: 1.5rem;"></button>
                         <div class="text-center mb-4">
-                            <img src="images/open-book_2280151.png" alt="Program Icon" style="width: 4rem; height: 4rem;">
                         </div>
                         <h2 class="h4 fw-bold text-dark mb-4 text-center">Program Kegiatan</h2>
                         <div class="bg-white rounded-3 p-4 mb-4" style="background-color: rgba(255, 255, 255, 0.7) !important;">
