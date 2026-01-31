@@ -442,7 +442,7 @@
                             <div class="current-image-wrapper">
                                 <span class="current-image-label">Foto Saat Ini:</span>
                                 <div>
-                                    <img src="{{ asset('storage/'.$pengurus->gambar) }}" class="current-image" alt="{{ $pengurus->nama }}">
+                                    <img src="{{ asset('uploads/' . $pengurus->gambar) }}" class="current-image" alt="{{ $pengurus->nama }}">
                                 </div>
                             </div>
                         @endif

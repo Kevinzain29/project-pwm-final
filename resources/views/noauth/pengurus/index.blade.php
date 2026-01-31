@@ -324,7 +324,7 @@
                     </div>
                     <div class="col-lg-5 col-md-5 text-center">
                         @if($main->gambar)
-                            <img src="{{ asset('storage/' . $main->gambar) }}" 
+                            <img src="{{ asset('uploads/' . $main->gambar) }}" 
                                 alt="{{ $main->nama }}" 
                                 class="img-fluid profile-image"
                                 data-aos="zoom-in" data-aos-delay="300">
@@ -354,7 +354,7 @@
                             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                                 <div class="team-card text-center" data-aos="fade-up" data-aos-delay="{{ 100 * $key }}">
                                     @if($pengurus->gambar)
-                                        <img src="{{ asset('storage/' . $pengurus->gambar) }}" 
+                                        <img src="{{ asset('uploads/' . $pengurus->gambar) }}" 
                                             alt="{{ $pengurus->nama }}" 
                                             class="team-avatar">
                                     @else

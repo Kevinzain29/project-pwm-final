@@ -468,7 +468,7 @@
                             </td>
                             <td>
                                 @if($item->gambar)
-                                    <img src="{{ asset('storage/' . $item->gambar) }}" class="news-thumbnail" alt="Gambar Berita">
+                                    <img src="{{ asset('uploads/' . $item->gambar) }}" class="news-thumbnail" alt="Gambar Berita">
                                 @else
                                     <div class="no-image-placeholder">
                                         📷

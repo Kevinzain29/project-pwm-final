@@ -21,7 +21,7 @@
                                 <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #1e4db7;"></i>
                             </div>
                             <h6 class="fw-bold mb-2" style="color: #1e4db7; font-size: 1rem;">Lowongan Kerja</h6>
-                            <h2 class="fw-bold text-white mb-0" style="font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">{{ $lowongans->total() }}</h2>
+                            <h2 class="fw-bold text-white mb-0" style="font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">{{ $lowongans->count() }}</h2>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                         <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2">
                             <i class="fas fa-info-circle me-1"></i>
                             Hasil untuk: "<strong>{{ request('q') }}</strong>"
-                            @if($lowongans->total() > 0)
-                                - {{ $lowongans->total() }} ditemukan
+                            @if($lowongans->count() > 0)
+                                - {{ $lowongans->count() }} ditemukan
                             @else
                                 - Tidak ada hasil
                             @endif
@@ -95,7 +95,7 @@
                             <div class="position-relative" style="height: 200px; background: linear-gradient(145deg, #f8f9fa, #ffffff); overflow: hidden;">
                                 @if($l->gambar)
                                     <div class="d-flex align-items-center justify-content-center h-100 p-3">
-                                        <img src="{{ asset('storage/'.$l->gambar) }}"
+                                        <img src="{{ asset('uploads/' . $l->gambar) }}"
                                             alt="{{ $l->judul }}"
                                             style="width: 5cm; height: 5cm; object-fit: contain; transition: transform 0.3s ease;"
                                             class="rounded border border-light shadow-sm"
@@ -212,14 +212,7 @@
             @endif
         </div>
         @endif
-
-        <div class="row mt-5 pt-4 border-top border-light" data-aos="fade-up">
-            <div class="col-12">
-                <div class="d-flex justify-content-center">
-                    {{ $lowongans->appends(request()->query())->links() }}
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 @endsection

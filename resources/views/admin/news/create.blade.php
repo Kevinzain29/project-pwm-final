@@ -428,7 +428,7 @@
                         <!-- Preview -->
                         <div class="preview-wrapper">
                             <img id="preview" 
-                                 src="{{ old('gambar_temp') ? asset('storage/tmp/' . old('gambar_temp')) : '' }}" 
+                                 src="{{ old('gambar_temp') ? asset('uploads/tmp/' . old('gambar_temp')) : '' }}" 
                                  class="preview-image {{ old('gambar_temp') ? '' : 'd-none' }}" 
                                  alt="Preview">
                         </div>

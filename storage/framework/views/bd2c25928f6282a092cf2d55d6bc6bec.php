@@ -491,7 +491,7 @@
                             </td>
                             <td>
                                 <?php if($pengurus->gambar): ?>
-                                    <img src="<?php echo e(asset('storage/'.$pengurus->gambar)); ?>" class="pengurus-thumbnail" alt="<?php echo e($pengurus->nama); ?>">
+                                    <img src="<?php echo e(asset('uploads/'.$pengurus->gambar)); ?>" class="pengurus-thumbnail" alt="<?php echo e($pengurus->nama); ?>">
                                 <?php else: ?>
                                     <div class="no-image-placeholder">
                                         👤

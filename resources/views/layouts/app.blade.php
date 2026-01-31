@@ -40,7 +40,7 @@
                         <img src="{{ asset('images/Logo_PWM_DIY.png') }}" alt="Logo" class="me-2 rounded-circle" class="me-3" style="width:50px; height:50px;">
                         <div>
                             <h5 class="mb-0 fw-bold" style="color:#22C55E;">PWM DIY</h5>
-                            <small class="text-white">Lembaga Pengembang Usaha Mikro Kecil dan Menengah<br>Pimpinan Pusat Muhammadiyah</small>
+                            <small class="text-white">Lembaga Pengembang Usaha Mikro Kecil dan Menengah<br>Pimpinan Wilayah Muhammadiyah</small>
                         </div>
                     </div>
 
@@ -98,7 +98,7 @@
         // Inisialisasi AOS
         AOS.init({
             duration: 1000, // Durasi animasi (ms)
-            once: false,     // Animasi hanya berjalan sekali
+            once: true,     // Animasi hanya berjalan sekali
             mirror: true,  // Objek tidak beranimasi mundur saat scroll ke atas
         });
     </script>

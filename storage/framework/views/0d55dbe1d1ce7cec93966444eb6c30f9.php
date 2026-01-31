@@ -322,7 +322,7 @@
                     </div>
                     <div class="col-lg-5 col-md-5 text-center">
                         <?php if($main->gambar): ?>
-                            <img src="<?php echo e(asset('storage/' . $main->gambar)); ?>" 
+                            <img src="<?php echo e(asset('uploads/' . $main->gambar)); ?>" 
                                 alt="<?php echo e($main->nama); ?>" 
                                 class="img-fluid profile-image"
                                 data-aos="zoom-in" data-aos-delay="300">
@@ -352,7 +352,7 @@
                             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                                 <div class="team-card text-center" data-aos="fade-up" data-aos-delay="<?php echo e(100 * $key); ?>">
                                     <?php if($pengurus->gambar): ?>
-                                        <img src="<?php echo e(asset('storage/' . $pengurus->gambar)); ?>" 
+                                        <img src="<?php echo e(asset('uploads/' . $pengurus->gambar)); ?>" 
                                             alt="<?php echo e($pengurus->nama); ?>" 
                                             class="team-avatar">
                                     <?php else: ?>

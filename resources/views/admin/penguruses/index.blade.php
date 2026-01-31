@@ -492,7 +492,7 @@
                             </td>
                             <td>
                                 @if($pengurus->gambar)
-                                    <img src="{{ asset('storage/'.$pengurus->gambar) }}" class="pengurus-thumbnail" alt="{{ $pengurus->nama }}">
+                                    <img src="{{ asset('uploads/'.$pengurus->gambar) }}" class="pengurus-thumbnail" alt="{{ $pengurus->nama }}">
                                 @else
                                     <div class="no-image-placeholder">
                                         👤

@@ -33,7 +33,7 @@
                     <!-- Featured Image Section -->
                     @if($lowongan->gambar)
                         <div class="position-relative" style="overflow: hidden;">
-                            <img src="{{ asset('storage/' . $lowongan->gambar) }}" 
+                            <img src="{{ asset('uploads/' . $lowongan->gambar) }}" 
                                 class="card-img-top"
                                 alt="{{ $lowongan->judul }}"
                                 data-aos="zoom-out" 

@@ -425,7 +425,7 @@
                             <div class="current-image-wrapper">
                                 <span class="current-image-label">Gambar Saat Ini:</span>
                                 <div>
-                                    <img src="{{ asset('storage/' . $news->gambar) }}" class="current-image" alt="Gambar Berita">
+                                    <img src="{{ asset('uploads/' . $news->gambar) }}" class="current-image" alt="Gambar Berita">
                                 </div>
                             </div>
                         @endif

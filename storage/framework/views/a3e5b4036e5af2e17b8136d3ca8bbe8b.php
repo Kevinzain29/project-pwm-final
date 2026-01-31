@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <style>
     body {
         background: linear-gradient(180deg, #3b5998 0%, #2d4373 100%) !important;
@@ -317,8 +315,8 @@
                 Form Data Pengurus
             </div>
             <div class="form-card-body">
-                <form action="{{ route('admin.penguruses.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form action="<?php echo e(route('admin.penguruses.store')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
 
                     <!-- Divisi -->
                     <div class="form-group">
@@ -327,20 +325,35 @@
                             <select
                                 id="divisi_id"
                                 name="divisi_id"
-                                class="form-control-modern @error('divisi_id') is-invalid @enderror"                            >
+                                class="form-control-modern <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"                            >
                                 <option value="">-- Pilih Divisi --</option>
-                                @foreach($divisis as $divisi)
-                                    <option value="{{ $divisi->id }}"
-                                        {{ old('divisi_id') == $divisi->id ? 'selected' : '' }}>
-                                        {{ $divisi->nama }}
+                                <?php $__currentLoopData = $divisis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $divisi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($divisi->id); ?>"
+                                        <?php echo e(old('divisi_id') == $divisi->id ? 'selected' : ''); ?>>
+                                        <?php echo e($divisi->nama); ?>
+
                                     </option>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
-                        @error('divisi_id')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <?php $__errorArgs = ['divisi_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <!-- Nama -->
@@ -351,13 +364,27 @@
                                 type="text" 
                                 id="nama"
                                 name="nama" 
-                                value="{{ old('nama') }}" 
-                                class="form-control-modern @error('nama') is-invalid @enderror"
+                                value="<?php echo e(old('nama')); ?>" 
+                                class="form-control-modern <?php $__errorArgs = ['nama'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                 placeholder="Masukkan nama lengkap pengurus">
                         </div>
-                        @error('nama') 
-                            <div class="invalid-feedback">{{ $message }}</div> 
-                        @enderror
+                        <?php $__errorArgs = ['nama'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> 
+                            <div class="invalid-feedback"><?php echo e($message); ?></div> 
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <!-- Jabatan -->
@@ -368,13 +395,27 @@
                                 type="text" 
                                 id="jabatan"
                                 name="jabatan" 
-                                class="form-control-modern @error('jabatan') is-invalid @enderror" 
-                                value="{{ old('jabatan') }}"
+                                class="form-control-modern <?php $__errorArgs = ['jabatan'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('jabatan')); ?>"
                                 placeholder="Contoh: Ketua, Sekretaris, Bendahara">
                         </div>
-                        @error('jabatan')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <?php $__errorArgs = ['jabatan'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <!-- Deskripsi -->
@@ -383,19 +424,33 @@
                         <textarea 
                             id="deskripsi"
                             name="deskripsi" 
-                            class="form-control-modern @error('deskripsi') is-invalid @enderror"
+                            class="form-control-modern <?php $__errorArgs = ['deskripsi'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                             rows="4"
                             minlength="10"
                             maxlength="500"
-                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 10 karakter)">{{ old('deskripsi') }}</textarea>
+                            placeholder="Tulis deskripsi singkat tentang pengurus... (minimal 10 karakter)"><?php echo e(old('deskripsi')); ?></textarea>
                         
                         <small id="deskripsiHelp" class="char-counter d-none">
                             <span class="char-counter-value" id="deskripsiCount">0</span>/500 karakter (minimal 10 karakter)
                         </small>
 
-                        @error('deskripsi')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <?php $__errorArgs = ['deskripsi'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <!-- Gambar -->
@@ -416,17 +471,24 @@
                                 name="gambar" 
                                 accept="image/*">
                                 required>
-                            <input type="hidden" name="gambar_temp" id="gambar_temp" value="{{ old('gambar_temp') }}">
+                            <input type="hidden" name="gambar_temp" id="gambar_temp" value="<?php echo e(old('gambar_temp')); ?>">
                         </div>
-                        @error('gambar')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <?php $__errorArgs = ['gambar'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         
                         <!-- Preview -->
                         <div class="preview-wrapper">
                             <img id="preview" 
-                                 src="{{ old('gambar_temp') ? asset('uploads/tmp/'.old('gambar_temp')) : '' }}" 
-                                 class="preview-image {{ old('gambar_temp') ? '' : 'd-none' }}" 
+                                 src="<?php echo e(old('gambar_temp') ? asset('uploads/tmp/'.old('gambar_temp')) : ''); ?>" 
+                                 class="preview-image <?php echo e(old('gambar_temp') ? '' : 'd-none'); ?>" 
                                  alt="Preview">
                         </div>
                     </div>
@@ -434,7 +496,7 @@
                     <!-- Actions -->
                     <div class="form-actions">
                         <button type="submit" class="btn-submit">Simpan Pengurus</button>
-                        <a href="{{ route('admin.penguruses.index') }}" class="btn-cancel">Batal</a>
+                        <a href="<?php echo e(route('admin.penguruses.index')); ?>" class="btn-cancel">Batal</a>
                     </div>
                 </form>
             </div>
@@ -442,7 +504,7 @@
     </div>
 </div>
 
-{{-- Scripts --}}
+
 <script>
     // Upload Gambar & Preview
     document.getElementById('gambar').addEventListener('change', function() {
@@ -464,7 +526,7 @@
         let formData = new FormData();
         formData.append('gambar', file);
 
-        fetch("{{ route('admin.pengurus.upload.temp') }}", {
+        fetch("<?php echo e(route('admin.pengurus.upload.temp')); ?>", {
             method: 'POST',
             body: formData,
             headers: {
@@ -530,4 +592,5 @@
     deskripsi.addEventListener('input', updateCount);
     updateCount(); // Initialize on page load
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\project-pwm-final\resources\views/admin/penguruses/create.blade.php ENDPATH**/ ?>

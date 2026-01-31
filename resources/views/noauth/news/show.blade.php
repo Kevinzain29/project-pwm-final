@@ -10,7 +10,7 @@
                 @if($mainNews->gambar)
                     {{-- AOS: Efek zoom-out agar gambar terlihat dinamis saat dibuka --}}
                     <div style="overflow: hidden; border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
-                        <img src="{{ asset('storage/' . $mainNews->gambar) }}" 
+                        <img src="{{ asset('uploads/' . $mainNews->gambar) }}" 
                             class="card-img-top"
                             alt="{{ $mainNews->judul }}"
                             data-aos="zoom-out" 

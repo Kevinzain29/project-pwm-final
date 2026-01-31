@@ -500,7 +500,7 @@
                         @if($lowongan->gambar)
                             <div class="current-image-wrapper">
                                 <div class="current-image-label">Gambar Saat Ini</div>
-                                <img src="{{ asset('storage/' . $lowongan->gambar) }}" 
+                                <img src="{{ asset('uploads/' . $lowongan->gambar) }}" 
                                      alt="Gambar Lowongan" 
                                      class="current-image">
                             </div>

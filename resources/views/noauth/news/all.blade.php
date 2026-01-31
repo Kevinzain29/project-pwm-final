@@ -37,7 +37,7 @@
                                  
                                 <div class="position-relative" style="height: 220px; overflow: hidden;">
                                     @if($item->gambar)
-                                        <img src="{{ asset('storage/' . $item->gambar) }}" 
+                                        <img src="{{ asset('uploads/' . $item->gambar) }}" 
                                             class="card-img-top w-100 h-100"
                                             alt="{{ $item->judul }}"
                                             style="object-fit: cover; transition: transform 0.3s ease;"

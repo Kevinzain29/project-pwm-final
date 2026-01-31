@@ -48,7 +48,7 @@
                             
                             @if($mainNews->gambar)
                                 <div class="position-relative" style="overflow: hidden;">
-                                    <img src="{{ asset('storage/' . $mainNews->gambar) }}" 
+                                    <img src="{{ asset('uploads/' . $mainNews->gambar) }}" 
                                          alt="{{ $mainNews->judul }}" 
                                          style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s ease;"
                                          onmouseover="this.style.transform='scale(1.08)';"
@@ -108,7 +108,7 @@
                                
                                 @if($item->gambar)
                                     <div style="flex: 0 0 35%; height: 100%; position: relative; overflow: hidden;">
-                                        <img src="{{ asset('storage/' . $item->gambar) }}" 
+                                        <img src="{{ asset('uploads/' . $item->gambar) }}" 
                                              alt="{{ $item->judul }}" 
                                              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
                                              onmouseover="this.style.transform='scale(1.1)';"

@@ -160,7 +160,7 @@
                                     {{-- File --}}
                                     <td class="text-center">
                                         @if ($item->file)
-                                            <a href="{{ asset('storage/'.$item->file) }}"
+                                            <a href="{{ asset('uploads/'.$item->file) }}"
                                                target="_blank"
                                                class="btn btn-sm btn-outline-primary rounded-pill px-3 shadow-sm">
                                                 <i class="fas fa-eye me-1"></i>Lihat
